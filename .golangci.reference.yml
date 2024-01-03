@@ -680,8 +680,8 @@ linters-settings:
   godox:
     format: true
     format-rules:
-      - keyword: "TODO": 
-        regularExpression: `^TODO\([a-z]+\)\s+.+$`
+      - keyword: "TODO" 
+        regularExpression: "^TODO\\([a-z]+\\)\\s+.+$"
     # Report any comments starting with keywords, this is useful for TODO or FIXME comments that
     # might be left in the code accidentally and should be resolved before merging.
     # Default: ["TODO", "BUG", "FIXME"]
