@@ -30,6 +30,11 @@ linters-settings:
       - whyNoLint
   gocyclo:
     min-complexity: 15
+  godox:
+    format: true
+    format-rules:
+      - keyword: "TODO"
+        regularExpression: "^TODO\\([a-z]+\\)\\s+.+$"
   gofmt:
     rewrite-rules:
       - pattern: 'interface{}'
