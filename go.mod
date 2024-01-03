@@ -199,3 +199,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	mvdan.cc/lint v0.0.0-20170908181259-adc824a0674b // indirect
 )
+
+replace github.com/matoous/godox v0.0.0-20230222163458-006bad1f9d26 => github.com/SilverdewBaker/godox v0.0.0-20240103062945-f874fd226ce5

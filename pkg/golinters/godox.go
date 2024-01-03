@@ -6,6 +6,7 @@ import (
 	"sync"
 
 	"github.com/matoous/godox"
+	godoxConfig "github.com/matoous/godox/config"
 	"golang.org/x/tools/go/analysis"
 
 	"github.com/golangci/golangci-lint/pkg/config"
@@ -51,8 +52,20 @@ func NewGodox(settings *config.GodoxSettings) *goanalysis.Linter {
 
 func runGodox(pass *analysis.Pass, settings *config.GodoxSettings) []goanalysis.Issue {
 	var messages []godox.Message
+	formatRules := make([]godoxConfig.GoDoxFormatRule, len(settings.FormatRules))
+	for k, i := range settings.FormatRules {
+		formatRules[k] = godoxConfig.GoDoxFormatRule{
+			Keyword:           i.Keyword,
+			RegularExpression: i.RegularExpression,
+		}
+	}
+	godoxSettings := godoxConfig.GoDoxSettings{
+		Format:      settings.Format,
+		Keywords:    settings.Keywords,
+		FormatRules: formatRules,
+	}
 	for _, file := range pass.Files {
-		messages = append(messages, godox.Run(file, pass.Fset, settings.Keywords...)...)
+		messages = append(messages, godox.Run(file, pass.Fset, &godoxSettings)...)
 	}
 
 	if len(messages) == 0 {
