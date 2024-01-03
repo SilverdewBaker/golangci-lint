@@ -50,7 +50,9 @@ var defaultLintersSettings = LintersSettings{
 		SettingsPerCheck: map[string]GoCriticCheckSettings{},
 	},
 	Godox: GodoxSettings{
-		Keywords: []string{},
+		Format:      false,
+		Keywords:    []string{},
+		FormatRules: []GodoxFormatRule{},
 	},
 	Godot: GodotSettings{
 		Scope:  "declarations",
@@ -483,7 +485,14 @@ type GodotSettings struct {
 }
 
 type GodoxSettings struct {
-	Keywords []string
+	Format      bool
+	Keywords    []string          `mapstructure:"keywords"`
+	FormatRules []GodoxFormatRule `mapstructure:"format-rules"`
+}
+
+type GodoxFormatRule struct {
+	Keyword           string
+	RegularExpression string
 }
 
 type GoFmtSettings struct {
