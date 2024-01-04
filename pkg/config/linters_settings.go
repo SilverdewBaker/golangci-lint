@@ -485,14 +485,14 @@ type GodotSettings struct {
 }
 
 type GodoxSettings struct {
-	Format      bool              `mapstructure:"format"`
+	Format      bool
 	Keywords    []string          `mapstructure:"keywords"`
 	FormatRules []GodoxFormatRule `mapstructure:"format-rules"`
 }
 
 type GodoxFormatRule struct {
-	Keyword           string `yaml:"keyword,omitempty" mapstructure:"keyword"`
-	RegularExpression string `yaml:"regularExpression,omitempty" mapstructure:"regularExpression"`
+	Keyword           string
+	RegularExpression string
 }
 
 type GoFmtSettings struct {
