@@ -113,7 +113,6 @@ linters:
     - unparam
     - unused
     - whitespace
-    - godox
 
   # don't enable:
   # - asciicheck
@@ -121,6 +120,7 @@ linters:
   # - gochecknoglobals
   # - gocognit
   # - godot
+  # - godox
   # - goerr113
   # - interfacer
   # - maligned

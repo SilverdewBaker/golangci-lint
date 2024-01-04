@@ -678,17 +678,13 @@ linters-settings:
     capital: true
 
   godox:
-    format: true
-    format-rules:
-      - keyword: "TODO": 
-        regularExpression: `^TODO\([a-z]+\)\s+.+$`
     # Report any comments starting with keywords, this is useful for TODO or FIXME comments that
     # might be left in the code accidentally and should be resolved before merging.
     # Default: ["TODO", "BUG", "FIXME"]
-    # keywords:
-    #   - NOTE
-    #   - OPTIMIZE # marks code that should be optimized before merging
-    #   - HACK # marks hack-around that should be removed before merging
+    keywords:
+      - NOTE
+      - OPTIMIZE # marks code that should be optimized before merging
+      - HACK # marks hack-around that should be removed before merging
 
   gofmt:
     # Simplify code: gofmt with `-s` option.
